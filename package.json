@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "GymPass Style App.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
-    "build": "tsup src --out-dir build"
+    "build": "tsup src --out-dir build",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "keywords": [],
   "author": "Ruan Brito <ruan.desenvolvedor@gmail.com>",
@@ -23,7 +26,9 @@
     "tsup": "8.3.0",
     "tsx": "4.19.1",
     "typescript": "5.6.2",
-    "typescript-eslint": "8.8.1"
+    "typescript-eslint": "8.8.1",
+    "vite-tsconfig-paths": "5.0.1",
+    "vitest": "2.1.2"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
