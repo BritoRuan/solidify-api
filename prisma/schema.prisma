@@ -14,6 +14,8 @@ model User {
   passwordHash String
   createdAt    DateTime  @default(now())
   checkIns     CheckIn[]
+
+  @@map("users")
 }
 
 model CheckIn {
