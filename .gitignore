@@ -10,3 +10,6 @@ build
 
 # Markdown
 *.md
+
+# Tests
+coverage
