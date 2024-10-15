@@ -21,12 +21,12 @@ model User {
 model CheckIn {
   id          String    @id @default(uuid())
   userId      String
-  gynId       String
+  gymId       String
   createdAt   DateTime  @default(now())
   validatedAt DateTime?
 
   user User @relation(fields: [userId], references: [id])
-  gyn  Gyn  @relation(fields: [gynId], references: [id])
+  gyn  Gyn  @relation(fields: [gymId], references: [id])
 
   @@map("check_ins")
 }
