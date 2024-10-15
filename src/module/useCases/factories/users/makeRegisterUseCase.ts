@@ -1,4 +1,4 @@
-import { PrismaUsersRepository } from '@/module/repositories/contracts/prisma/PrismaUsersRepository'
+import { PrismaUsersRepository } from '@/module/repositories/contracts/PrismaUsersRepository/PrismaUsersRepository'
 import { RegisterUseCase } from '@/module/useCases/users/registerUseCase'
 
 export function makeRegisterUseCase() {
