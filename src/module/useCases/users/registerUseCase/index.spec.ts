@@ -1,7 +1,7 @@
-import { UsersInMemoryRepository } from '@/module/test/module/user/repositories/UsersInMemoryRepository'
+import { UsersInMemoryRepository } from '@/module/repositories/contracts/UsersInMemoryRepository/UsersInMemoryRepository'
 import { UserAlreadyExistsError } from '@/module/errors/UserAlreadyExistsError/UserAlreadyExistsError'
 import { describe, expect, it, beforeEach } from 'vitest'
-import { RegisterUseCase } from '.'
+import { RegisterUseCase } from './index'
 import { compare } from 'bcryptjs'
 
 let usersRepository: UsersInMemoryRepository
@@ -47,7 +47,7 @@ describe('Register Use Case', () => {
       password: 'bolinha12345',
     })
 
-    expect(() =>
+    await expect(() =>
       sut.execute({
         name: 'John Doe',
         email,
