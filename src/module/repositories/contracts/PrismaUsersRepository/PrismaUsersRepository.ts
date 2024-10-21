@@ -1,6 +1,6 @@
+import { IUsersRepository } from '../UsersRepository'
 import { prisma } from '@/lib/prisma'
 import { Prisma } from '@prisma/client'
-import { IUsersRepository } from '../UsersRepository'
 
 export class PrismaUsersRepository implements IUsersRepository {
   async create(data: Prisma.UserCreateInput) {
@@ -22,7 +22,7 @@ export class PrismaUsersRepository implements IUsersRepository {
   }
 
   async findById(id: string) {
-    const user = await prisma.user.findFirst({
+    const user = await prisma.user.findUnique({
       where: {
         id,
       },
