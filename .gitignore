@@ -9,7 +9,7 @@ build
 .env
 
 # Markdown
-*.md
+NOTES.md
 
 # Tests
 coverage
