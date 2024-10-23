@@ -13,6 +13,7 @@ model User {
   email        String    @unique
   passwordHash String
   createdAt    DateTime  @default(now())
+  role         Role      @default(MEMBER)
   checkIns     CheckIn[]
 
   @@map("users")
@@ -20,13 +21,12 @@ model User {
 
 model CheckIn {
   id          String    @id @default(uuid())
-  userId      String
-  gymId       String
   createdAt   DateTime  @default(now())
   validatedAt DateTime?
-
-  user User @relation(fields: [userId], references: [id])
-  gym  Gym  @relation(fields: [gymId], references: [id])
+  userId      String
+  gymId       String
+  gym         Gym       @relation(fields: [gymId], references: [id])
+  user        User      @relation(fields: [userId], references: [id])
 
   @@map("check_ins")
 }
@@ -41,4 +41,9 @@ model Gym {
   checkIns    CheckIn[]
 
   @@map("gyms")
+}
+
+enum Role {
+  ADMIN
+  MEMBER
 }
